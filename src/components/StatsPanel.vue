@@ -74,12 +74,25 @@ const props = defineProps<Props>();
 }
 
 .stats-panel h2 {
-  margin-top: 0;
-  color: #333;
-  font-size: 1.5rem;
-  border-bottom: 2px solid #4a6fa5;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  margin: 0 0 28px 0;
+  color: #1f2937;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding-bottom: 16px;
+  border-bottom: 3px solid #e5e7eb;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.stats-panel h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  border-radius: 3px;
 }
 
 .stats-grid {
@@ -91,23 +104,39 @@ const props = defineProps<Props>();
 .stat-card {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 20px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  gap: 18px;
+  padding: 24px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
 }
 
 .stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-color: rgba(37, 99, 235, 0.2);
 }
 
 .stat-icon {
   font-size: 2rem;
   width: 40px;
   text-align: center;
+  color: #4361ee;
 }
 
 .stat-content {
@@ -123,32 +152,17 @@ const props = defineProps<Props>();
 .stat-value {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #333;
+  color: #4361ee;
   line-height: 1;
 }
 
-/* 针对不同统计项的样式微调 */
-.stat-icon.average {
-  color: #2196f3;
-}
-
-.stat-icon.highest {
-  color: #4caf50;
-}
-
-.stat-icon.lowest {
-  color: #f44336;
-}
-
-.stat-icon.total {
-  color: #ff9800;
-}
-
-.stat-icon.passed {
-  color: #8bc34a;
-}
-
+/* 统一蓝色系配色 */
+.stat-icon.average,
+.stat-icon.highest,
+.stat-icon.lowest,
+.stat-icon.total,
+.stat-icon.passed,
 .stat-icon.pass-rate {
-  color: #9c27b0;
+  color: #4361ee;
 }
 </style>

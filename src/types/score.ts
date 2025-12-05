@@ -8,6 +8,29 @@ export interface ScoreItem {
   rank?: number;
   classAverage?: number;
   comment?: string;
+  // 分数构成
+  scoreComposition?: {
+    multipleChoice: {
+      count: number;
+      score: number;
+      total: number;
+    };
+    multipleSelect: {
+      count: number;
+      score: number;
+      total: number;
+    };
+    trueFalse: {
+      count: number;
+      score: number;
+      total: number;
+    };
+    programming: {
+      count: number;
+      score: number;
+      total: number;
+    };
+  };
   skills: {
     name: string;
     score: number;
@@ -24,7 +47,7 @@ export interface ScoreStats {
 
 export interface StudentInfo {
   name: string;
-  grade: string;
-  studentId: string;
-  programmingLevel: string;
+  age: number;
+  classNumber: string;
+  programmingLevel: 'C' | 'C++' | 'Python' | 'Scratch';
 }
